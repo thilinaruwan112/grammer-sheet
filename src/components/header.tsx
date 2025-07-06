@@ -14,8 +14,7 @@ const navLinks = [
   { href: '/classes', label: 'Classes' },
   { href: '/reviews', label: 'Reviews' },
   { href: '/news', label: 'News' },
-  { href: '/sheets', label: 'Sheets' },
-  { href: '/checker', label: 'AI Checker' },
+  { href: '/contact', label: 'Contact' },
 ];
 
 export default function Header() {
