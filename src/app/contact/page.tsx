@@ -1,4 +1,5 @@
 import ContactFormSection from '@/components/contact/contact-form-section';
+import FaqSection from '@/components/contact/faq-section';
 import HeroSection from '@/components/contact/hero-section';
 
 export default function ContactPage() {
@@ -6,6 +7,7 @@ export default function ContactPage() {
     <>
       <HeroSection />
       <ContactFormSection />
+      <FaqSection />
     </>
   );
 }
