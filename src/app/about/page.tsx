@@ -1,3 +1,4 @@
+import CtaSection from '@/components/about/cta-section';
 import HeroSection from '@/components/about/hero-section';
 import LocalLearningSection from '@/components/about/local-learning-section';
 import StatsSection from '@/components/about/stats-section';
@@ -12,6 +13,7 @@ export default function AboutPage() {
       <TeachingApproachSection />
       <StatsSection />
       <LocalLearningSection />
+      <CtaSection />
     </>
   );
 }
