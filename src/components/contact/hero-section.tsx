@@ -62,7 +62,7 @@ export default function HeroSection() {
       animate="visible"
       variants={sectionVariants}
     >
-        <div className="relative h-[80vh] min-h-[700px] md:min-h-[600px] w-full">
+        <div className="relative h-[60vh] min-h-[500px] w-full flex flex-col items-center justify-center">
             <Image
                 src="https://placehold.co/1920x1080.png"
                 alt="Group of teachers and staff"
@@ -72,19 +72,18 @@ export default function HeroSection() {
                 data-ai-hint="teachers staff"
             />
             <div className="absolute inset-0 bg-black/50" />
+            <div className="relative z-10 text-center text-white px-4">
+                <h1 className="font-headline text-5xl font-bold tracking-tight md:text-7xl">
+                    Get in Touch
+                </h1>
+                <p className="max-w-2xl mx-auto mt-4 text-lg text-neutral-200 md:text-xl">
+                    We'd love to hear from you. Contact us for class details, questions, or registration.
+                </p>
+            </div>
         </div>
       
-        <div className="relative z-10 -mt-[50vh] md:-mt-[25vh] pb-24">
+        <div className="relative z-10 -mt-48 pb-24">
             <div className="container mx-auto px-4">
-                <div className="text-center text-white mb-12">
-                    <h1 className="font-headline text-5xl font-bold tracking-tight md:text-7xl">
-                        Get in Touch
-                    </h1>
-                    <p className="max-w-2xl mx-auto mt-4 text-lg text-neutral-200 md:text-xl">
-                        We'd love to hear from you. Contact us for class details, questions, or registration.
-                    </p>
-                </div>
-
                 <motion.div 
                     className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto"
                     initial="hidden"
