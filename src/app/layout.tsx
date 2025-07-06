@@ -6,7 +6,7 @@ import Header from '@/components/header';
 import Footer from '@/components/footer';
 
 export const metadata: Metadata = {
-  title: 'GrammarSheet',
+  title: 'Grammar Sheet',
   description: 'Your go-to resource for English grammar lessons, exercises, and reference sheets.',
 };
 
