@@ -1,3 +1,6 @@
+'use client';
+
+import * as React from 'react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -8,9 +11,8 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay"
 
 const classesData = [
   {
@@ -112,6 +114,10 @@ const testimonialsData = [
 
 
 export default function Home() {
+  const plugin = React.useRef(
+    Autoplay({ delay: 3000, stopOnInteraction: true, stopOnMouseEnter: true })
+  );
+
   return (
     <>
       <section className="relative h-screen w-full">
@@ -241,6 +247,7 @@ export default function Home() {
           </h2>
           <div className="max-w-4xl mx-auto">
             <Carousel
+              plugins={[plugin.current]}
               opts={{
                 align: "start",
                 loop: true,
@@ -275,8 +282,6 @@ export default function Home() {
                   </CarouselItem>
                 ))}
               </CarouselContent>
-              <CarouselPrevious className="hidden sm:flex" />
-              <CarouselNext className="hidden sm:flex" />
             </Carousel>
           </div>
           <div className="mt-12">
