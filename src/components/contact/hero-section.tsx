@@ -96,7 +96,7 @@ export default function HeroSection() {
                         return (
                             <motion.div key={index} variants={cardVariants}>
                                 <Card className="text-center h-full shadow-2xl rounded-2xl bg-card">
-                                    <CardContent className="p-8 flex flex-col items-center justify-between h-full">
+                                    <CardContent className="p-6 flex flex-col items-center justify-between h-full">
                                         <div className="flex flex-col items-center">
                                             <div className={`w-16 h-16 rounded-full flex items-center justify-center ${method.iconBg} mb-4`}>
                                                 <Icon className={`w-8 h-8 ${method.iconColor}`} />
@@ -110,7 +110,7 @@ export default function HeroSection() {
                                             </Button>
                                         )}
                                         {method.map && (
-                                            <div className="w-full h-32 mt-4 rounded-lg overflow-hidden">
+                                            <div className="w-full h-24 mt-4 rounded-lg overflow-hidden">
                                                  <Image
                                                     src="https://placehold.co/400x200.png"
                                                     alt="Map location"
