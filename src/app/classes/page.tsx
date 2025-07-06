@@ -11,8 +11,8 @@ export default function ClassesPage() {
       <HeroSection />
       <GradesSection />
       <ClassDetailSection />
-      <StudentAchievementsSection />
       <WhyChooseUsSection />
+      <StudentAchievementsSection />
       <CtaSection />
     </>
   );
