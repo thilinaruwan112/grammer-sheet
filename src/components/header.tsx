@@ -5,8 +5,6 @@ import { Menu, FileText } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { useState } from 'react';
-import { usePathname } from 'next/navigation';
-import { cn } from '@/lib/utils';
 
 const navLinks = [
     { href: '/', label: 'Home' },
@@ -19,19 +17,14 @@ const navLinks = [
 
 export default function Header() {
   const [open, setOpen] = useState(false);
-  const pathname = usePathname();
-  const isHome = pathname === '/';
 
   return (
-    <header className={cn(
-        "sticky top-0 z-50 w-full border-b",
-        isHome ? "bg-transparent border-white/20" : "bg-background border-border"
-    )}>
+    <header className="sticky top-0 z-50 w-full border-b bg-background border-border">
       <div className="container flex h-16 max-w-7xl items-center justify-between">
         <div className="flex items-center">
           <Link href="/" className="flex items-center space-x-2">
-            <FileText className={cn("h-6 w-6", isHome ? "text-white" : "text-primary")} />
-            <span className={cn("font-bold text-lg", isHome ? "text-white" : "text-foreground")}>Grammar Sheet</span>
+            <FileText className="h-6 w-6 text-primary" />
+            <span className="font-bold text-lg text-foreground">Grammar Sheet</span>
           </Link>
         </div>
 
@@ -41,10 +34,7 @@ export default function Header() {
               <Link
                 key={label}
                 href={href}
-                className={cn(
-                  "transition-colors",
-                  isHome ? "text-white hover:text-white/80" : "text-foreground hover:text-primary"
-                )}
+                className="transition-colors text-foreground hover:text-primary"
               >
                 {label}
               </Link>
@@ -54,7 +44,7 @@ export default function Header() {
             <SheetTrigger asChild>
               <Button
                 variant="ghost"
-                className={cn("md:hidden", isHome && "text-white hover:bg-white/10 hover:text-white")}
+                className="md:hidden"
                 size="icon"
                 aria-label="Open menu"
               >
