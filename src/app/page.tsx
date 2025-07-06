@@ -4,6 +4,13 @@ import Image from 'next/image';
 import { Card } from '@/components/ui/card';
 import { cn } from '@/lib/utils';
 import { BookOpen, Pencil, GraduationCap, FileText, Trophy, Star, Users, LineChart, Heart, Laptop } from 'lucide-react';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 const classesData = [
   {
@@ -86,6 +93,20 @@ const testimonialsData = [
     review: '“Excellent teaching methods. My daughter loves attending classes and her confidence has grown tremendously.”',
     avatar: 'https://placehold.co/100x100.png',
     avatarHint: 'parent portrait',
+  },
+  {
+    name: 'Kavya Silva',
+    role: 'Grade 9 Student',
+    review: '“The classes are fun and interactive. I am no longer afraid of English exams!”',
+    avatar: 'https://placehold.co/100x100.png',
+    avatarHint: 'student happy',
+  },
+  {
+    name: 'Mr. Bandara',
+    role: 'Parent',
+    review: '“A very dedicated teacher who knows how to motivate students. Highly recommended for anyone looking to improve.”',
+    avatar: 'https://placehold.co/100x100.png',
+    avatarHint: 'parent smiling',
   },
 ];
 
@@ -218,31 +239,45 @@ export default function Home() {
           <h2 className="text-3xl font-bold font-headline mb-12 text-foreground">
             What Students Say
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {testimonialsData.map((testimonial, index) => (
-              <Card key={index} className="bg-card p-8 rounded-2xl shadow-lg text-left">
-                <div className="flex items-center mb-4">
-                  <Image
-                    src={testimonial.avatar}
-                    alt={testimonial.name}
-                    width={60}
-                    height={60}
-                    className="rounded-full object-cover"
-                    data-ai-hint={testimonial.avatarHint}
-                  />
-                  <div className="ml-4">
-                    <h3 className="font-headline text-xl font-bold">{testimonial.name}</h3>
-                    <p className="text-muted-foreground">{testimonial.role}</p>
-                  </div>
-                </div>
-                <div className="flex mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-5 w-5 text-secondary-foreground" fill="currentColor" />
-                  ))}
-                </div>
-                <p className="text-muted-foreground">{testimonial.review}</p>
-              </Card>
-            ))}
+          <div className="max-w-4xl mx-auto">
+            <Carousel
+              opts={{
+                align: "start",
+                loop: true,
+              }}
+              className="w-full"
+            >
+              <CarouselContent>
+                {testimonialsData.map((testimonial, index) => (
+                  <CarouselItem key={index} className="md:basis-1/2 p-4">
+                    <Card className="bg-card p-8 rounded-2xl shadow-lg text-left h-full flex flex-col">
+                      <div className="flex items-center mb-4">
+                        <Image
+                          src={testimonial.avatar}
+                          alt={testimonial.name}
+                          width={60}
+                          height={60}
+                          className="rounded-full object-cover"
+                          data-ai-hint={testimonial.avatarHint}
+                        />
+                        <div className="ml-4">
+                          <h3 className="font-headline text-xl font-bold">{testimonial.name}</h3>
+                          <p className="text-muted-foreground">{testimonial.role}</p>
+                        </div>
+                      </div>
+                      <div className="flex mb-4">
+                        {[...Array(5)].map((_, i) => (
+                          <Star key={i} className="h-5 w-5 text-secondary-foreground" fill="currentColor" />
+                        ))}
+                      </div>
+                      <p className="text-muted-foreground flex-grow">{testimonial.review}</p>
+                    </Card>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="hidden sm:flex" />
+              <CarouselNext className="hidden sm:flex" />
+            </Carousel>
           </div>
           <div className="mt-12">
             <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 rounded-full">
