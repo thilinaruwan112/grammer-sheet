@@ -20,7 +20,7 @@ const sectionVariants = {
 export default function AboutSection() {
   return (
     <motion.section
-      className="py-16 bg-background"
+      className="py-16 bg-muted"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
