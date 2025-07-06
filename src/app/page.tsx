@@ -12,7 +12,8 @@ import {
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
-import Autoplay from "embla-carousel-autoplay"
+import Autoplay from "embla-carousel-autoplay";
+import { motion } from 'framer-motion';
 
 const classesData = [
   {
@@ -142,9 +143,26 @@ export default function Home() {
     Autoplay({ delay: 3000, stopOnInteraction: true, stopOnMouseEnter: true })
   );
 
+  const sectionVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      transition: { 
+        duration: 0.6,
+        ease: "easeOut"
+      } 
+    }
+  };
+
   return (
     <>
-      <section className="relative h-screen w-full">
+      <motion.section 
+        className="relative h-screen w-full"
+        initial="hidden"
+        animate="visible"
+        variants={sectionVariants}
+      >
         <Image
           src="https://placehold.co/1920x1080.png"
           alt="Sri Lankan students studying"
@@ -170,9 +188,15 @@ export default function Home() {
             </Button>
           </div>
         </div>
-      </section>
+      </motion.section>
 
-      <section className="py-16 bg-background">
+      <motion.section
+        className="py-16 bg-background"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={sectionVariants}
+      >
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto bg-card p-8 md:p-12 rounded-2xl shadow-xl flex flex-col md:flex-row items-center gap-8 md:gap-12">
             <div className="flex-shrink-0">
@@ -198,9 +222,15 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
-      <section className="py-16 bg-background">
+      <motion.section
+        className="py-16 bg-background"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={sectionVariants}
+      >
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold font-headline mb-2 text-foreground">Classes for Grades 6-11</h2>
           <p className="text-muted-foreground mb-12 max-w-lg mx-auto">Choose the perfect class for your grade level</p>
@@ -230,9 +260,15 @@ export default function Home() {
             })}
           </div>
         </div>
-      </section>
+      </motion.section>
 
-      <section className="py-16 bg-background">
+      <motion.section
+        className="py-16 bg-background"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={sectionVariants}
+      >
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold font-headline mb-12 text-foreground">
             Why Choose Grammar Sheet?
@@ -262,9 +298,15 @@ export default function Home() {
             ))}
           </div>
         </div>
-      </section>
+      </motion.section>
 
-      <section className="py-16 bg-background">
+      <motion.section
+        className="py-16 bg-background"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={sectionVariants}
+      >
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold font-headline mb-12 text-foreground">
             What Students Say
@@ -314,9 +356,15 @@ export default function Home() {
             </Button>
           </div>
         </div>
-      </section>
+      </motion.section>
 
-      <section className="py-16 bg-background">
+      <motion.section
+        className="py-16 bg-background"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={sectionVariants}
+      >
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold font-headline mb-12 text-foreground">
             Latest News & Updates
@@ -347,9 +395,16 @@ export default function Home() {
             </Button>
           </div>
         </div>
-      </section>
+      </motion.section>
 
-      <section className="py-20 text-white" style={{ background: 'linear-gradient(to right, hsl(217, 71%, 53%), hsl(158, 41%, 49%))' }}>
+      <motion.section
+        className="py-20 text-white"
+        style={{ background: 'linear-gradient(to right, hsl(217, 71%, 53%), hsl(158, 41%, 49%))' }}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={sectionVariants}
+      >
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold font-headline mb-4">
             Have Questions? Get in Touch Today!
@@ -361,7 +416,7 @@ export default function Home() {
             <Link href="#">Contact Us</Link>
           </Button>
         </div>
-      </section>
+      </motion.section>
     </>
   );
 }
