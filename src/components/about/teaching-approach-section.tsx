@@ -64,7 +64,7 @@ const teachingMethods: {
 export default function TeachingApproachSection() {
   return (
     <motion.section
-      className="py-24 bg-muted"
+      className="py-24 bg-background"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
