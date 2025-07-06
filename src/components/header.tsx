@@ -5,21 +5,24 @@ import { Menu, FileText } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { useState } from 'react';
+import { usePathname } from 'next/navigation';
+import { cn } from '@/lib/utils';
 
 const navLinks = [
-    { href: '/', label: 'Home' },
-    { href: '#', label: 'About' },
-    { href: '#', label: 'Classes' },
-    { href: '#', label: 'Reviews' },
-    { href: '#', label: 'News' },
-    { href: '#', label: 'Contact' },
+  { href: '/', label: 'Home' },
+  { href: '/about', label: 'About' },
+  { href: '/lessons', label: 'Lessons' },
+  { href: '/practice', label: 'Practice' },
+  { href: '/sheets', label: 'Sheets' },
+  { href: '/checker', label: 'AI Checker' },
 ];
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background border-border">
+    <header className="sticky top-0 z-50 w-full border-b bg-background">
       <div className="container flex h-16 max-w-7xl items-center justify-between">
         <div className="flex items-center">
           <Link href="/" className="flex items-center space-x-2">
@@ -34,7 +37,10 @@ export default function Header() {
               <Link
                 key={label}
                 href={href}
-                className="transition-colors text-foreground hover:text-primary"
+                className={cn(
+                  'transition-colors hover:text-primary',
+                  pathname === href ? 'text-primary' : 'text-foreground/60'
+                )}
               >
                 {label}
               </Link>
@@ -63,7 +69,10 @@ export default function Header() {
                       key={label}
                       href={href}
                       onClick={() => setOpen(false)}
-                      className="text-lg transition-colors hover:text-primary"
+                      className={cn(
+                        'text-lg transition-colors hover:text-primary',
+                        pathname === href ? 'text-primary' : 'text-foreground'
+                      )}
                     >
                       {label}
                     </Link>

@@ -9,9 +9,10 @@ const socialLinks = [
 
 const quickLinks = [
   { href: '/', label: 'Home' },
-  { href: '#', label: 'About' },
-  { href: '#', label: 'Classes' },
-  { href: '#', label: 'Reviews' },
+  { href: '/about', label: 'About' },
+  { href: '/lessons', label: 'Lessons' },
+  { href: '/practice', label: 'Practice' },
+  { href: '/sheets', label: 'Sheets' },
 ];
 
 const classLinks = [
@@ -30,7 +31,7 @@ const contactInfo = [
 
 export default function Footer() {
   return (
-    <footer className="dark bg-background text-foreground">
+    <footer className="bg-background text-foreground border-t">
       <div className="container mx-auto py-16 px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
           {/* Column 1: Brand */}
