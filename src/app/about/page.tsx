@@ -10,8 +10,8 @@ export default function AboutPage() {
       <HeroSection />
       <TeacherProfileSection />
       <TeachingApproachSection />
-      <LocalLearningSection />
       <StatsSection />
+      <LocalLearningSection />
     </>
   );
 }
