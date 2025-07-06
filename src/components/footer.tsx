@@ -12,7 +12,7 @@ const quickLinks = [
   { href: '/about', label: 'About' },
   { href: '/classes', label: 'Classes' },
   { href: '/reviews', label: 'Reviews' },
-  { href: '/practice', label: 'Practice' },
+  { href: '/news', label: 'News' },
   { href: '/sheets', label: 'Sheets' },
 ];
 
