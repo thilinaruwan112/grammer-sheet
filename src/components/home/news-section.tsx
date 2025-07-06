@@ -45,7 +45,7 @@ const sectionVariants = {
 export default function NewsSection() {
     return (
         <motion.section
-            className="py-16 bg-background"
+            className="py-16 bg-muted"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
@@ -76,7 +76,7 @@ export default function NewsSection() {
                     ))}
                 </div>
                 <div className="mt-12">
-                    <Button asChild size="lg" className="rounded-full">
+                    <Button asChild size="lg" className="rounded-full bg-accent text-accent-foreground hover:bg-accent/90">
                         <Link href="#">View All News</Link>
                     </Button>
                 </div>

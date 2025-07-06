@@ -48,7 +48,7 @@ const sectionVariants = {
 export default function WhyChooseUsSection() {
     return (
         <motion.section
-            className="py-16 bg-background"
+            className="py-16 bg-muted"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
@@ -60,7 +60,7 @@ export default function WhyChooseUsSection() {
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                     {whyChooseUsData.map((item, index) => (
-                        <Card key={index} className="p-8 text-center flex flex-col items-center shadow-lg rounded-2xl">
+                        <Card key={index} className="p-8 text-center flex flex-col items-center shadow-lg rounded-2xl bg-card">
                             <div className={cn(
                                 "mb-4 flex h-16 w-16 items-center justify-center rounded-full",
                                 item.color === 'green' && 'bg-accent',
