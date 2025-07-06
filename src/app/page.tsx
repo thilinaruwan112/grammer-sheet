@@ -4,7 +4,7 @@ import * as React from 'react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Card } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { cn } from '@/lib/utils';
 import { BookOpen, Pencil, GraduationCap, FileText, Trophy, Star, Users, LineChart, Heart, Laptop } from 'lucide-react';
 import {
@@ -109,6 +109,30 @@ const testimonialsData = [
     review: '“A very dedicated teacher who knows how to motivate students. Highly recommended for anyone looking to improve.”',
     avatar: 'https://placehold.co/100x100.png',
     avatarHint: 'parent smiling',
+  },
+];
+
+const newsData = [
+  {
+    title: 'New Batch Starting February 2024',
+    description: 'Registration now open for Grades 6-11. Limited seats available.',
+    date: 'Jan 15, 2024',
+    image: 'https://placehold.co/600x400.png',
+    imageHint: 'classroom notice board',
+  },
+  {
+    title: 'O/L Exam Tips Released',
+    description: 'Essential preparation strategies for the upcoming O/L examination.',
+    date: 'Jan 10, 2024',
+    image: 'https://placehold.co/600x400.png',
+    imageHint: 'exam preparation student',
+  },
+  {
+    title: 'Online Classes Now Available',
+    description: 'Join from anywhere in Sri Lanka with our new online platform.',
+    date: 'Jan 5, 2024',
+    image: 'https://placehold.co/600x400.png',
+    imageHint: 'online class student',
   },
 ];
 
@@ -287,6 +311,39 @@ export default function Home() {
           <div className="mt-12">
             <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 rounded-full">
               <Link href="#">Read All Reviews</Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 bg-background">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl font-bold font-headline mb-12 text-foreground">
+            Latest News & Updates
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-left">
+            {newsData.map((news, index) => (
+              <Card key={index} className="bg-card rounded-2xl shadow-lg overflow-hidden h-full flex flex-col">
+                <div className="relative h-48 w-full">
+                  <Image
+                    src={news.image}
+                    alt={news.title}
+                    fill
+                    className="object-cover"
+                    data-ai-hint={news.imageHint}
+                  />
+                </div>
+                <div className="p-6 flex flex-col flex-grow">
+                  <h3 className="font-headline text-xl font-bold mb-2">{news.title}</h3>
+                  <p className="text-muted-foreground mb-4 flex-grow">{news.description}</p>
+                  <p className="text-sm text-secondary-foreground font-medium">{news.date}</p>
+                </div>
+              </Card>
+            ))}
+          </div>
+          <div className="mt-12">
+            <Button asChild size="lg" className="rounded-full">
+              <Link href="#">View All News</Link>
             </Button>
           </div>
         </div>
